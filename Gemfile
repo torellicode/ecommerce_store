@@ -41,6 +41,9 @@ gem "redis", ">= 4.0.1"
 # Devise users
 gem 'devise'
 
+# Pundit for user authorization
+gem 'pundit'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
