@@ -8,7 +8,9 @@ class Vendor::DashboardController < ApplicationController
   private
 
   def require_vendor
-    redirect_to root_path unless current_user.vendor?
-    flash[:alert] = "You are not a Vendor"
+    unless current_user.vendor?
+      redirect_to root_path
+      flash[:alert] = "You are not a Vendor"
+    end
   end
 end

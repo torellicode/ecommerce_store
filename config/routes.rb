@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
+  namespace :users do
+    get 'vendor_onboardings/new'
+    get 'vendor_onboardings/create'
+  end
   devise_for :users
 
   # Public routes
    root "temp#home"
+
+   # Users routes
+  namespace :users do
+    resource :vendor_onboarding, only: [:new, :create], path: 'become_vendor'
+  end
 
   # Vendor routes
   namespace :vendor do

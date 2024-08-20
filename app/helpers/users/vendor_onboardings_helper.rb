@@ -1,0 +1,2 @@
+module Users::VendorOnboardingsHelper
+end

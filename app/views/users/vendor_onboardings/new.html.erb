@@ -1,0 +1,23 @@
+<h1>Become a Vendor</h1>
+
+<p>To become a vendor, please agree to our Terms of Service.</p>
+
+<%= form_with url: users_vendor_onboarding_path, method: :post do |f| %>
+  <div>
+    <%= check_box_tag :tos_agreement, '1' %>
+    <%= label_tag :tos_agreement, "I agree to the Terms of Service" %>
+  </div>
+  <div>
+    <%= f.submit "Become a Vendor", disabled: "disabled", id: "vendor-submit-button" %>
+  </div>
+<% end %>
+
+<%= link_to "Back to Home", root_path %>
+
+<script>
+  document.getElementById("tos_agreement").addEventListener("change", function() {
+    const submitButton = document.getElementById("vendor-submit-button");
+    submitButton.disabled = !this.checked;
+  });
+</script>
+
