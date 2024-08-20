@@ -8,6 +8,6 @@ class Admin::DashboardController < ApplicationController
   private
 
   def authorize_admin
-    authorize(:admin, :dashboard?)
+    authorize(:admin, :access?)
   end
 end

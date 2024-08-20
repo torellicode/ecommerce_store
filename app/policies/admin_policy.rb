@@ -1,13 +1,5 @@
 class AdminPolicy < ApplicationPolicy
-  def dashboard?
-    user.admin?
-  end
-
-  def public_access?
-    user.admin?
-  end
-
-  def vendor_access?
+  def access?
     user.admin?
   end
 

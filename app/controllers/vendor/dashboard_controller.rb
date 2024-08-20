@@ -1,16 +1,13 @@
 class Vendor::DashboardController < ApplicationController
   before_action :authenticate_user!
-  before_action :require_vendor
+  before_action :authorize_vendor_or_admin
 
   def index
   end
 
   private
 
-  def require_vendor
-    unless current_user.vendor?
-      redirect_to root_path
-      flash[:alert] = "You are not a Vendor"
-    end
+  def authorize_vendor_or_admin
+    authorize(:vendor, :access?)
   end
 end
