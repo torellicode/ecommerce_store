@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
-  namespace :users do
-    get 'vendor_onboardings/new'
-    get 'vendor_onboardings/create'
-  end
   devise_for :users
 
   # Public routes
    root "temp#home"
+   resources :products, only: [:index, :show]
 
    # Users routes
   namespace :users do
@@ -16,6 +13,11 @@ Rails.application.routes.draw do
   # Vendor routes
   namespace :vendor do
     get 'dashboard', to: 'dashboard#index'
+    resources :products do
+      member do
+        patch :toggle_visibility
+      end
+    end
   end
 
   # Admin routes
@@ -23,7 +25,5 @@ Rails.application.routes.draw do
     get 'dashboard', to: 'dashboard#index'
   end
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 end

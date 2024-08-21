@@ -1,0 +1,6 @@
+<h1>Showing product:</h1>
+
+<%= @product.name %>
+<%= @product.description %>
+
+<%= button_to 'Delete', vendor_product_path(@product), method: :delete, data: { confirm: 'Are you sure?' } %>
