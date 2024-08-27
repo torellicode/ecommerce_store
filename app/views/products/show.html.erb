@@ -1,0 +1,8 @@
+<h1><%= @product.name %></h1>
+
+<p><%= @product.description %></p>
+<p>Price: <%= number_to_currency(@product.price) %></p>
+<p>Category: <%= link_to @product.category.name, category_path(@product.category) %></p>
+<p>Subcategory: <%= link_to @product.subcategory.name, category_path(@product.subcategory) %></p>
+
+<%= link_to 'Back to Store', root_path %>

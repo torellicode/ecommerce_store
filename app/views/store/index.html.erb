@@ -1,0 +1,11 @@
+<% @products.each do |product| %>
+  <%= product.name %>
+<% end %>
+
+<div class="flex space-x-2">
+  <% @categories.each do |category| %>
+    <%= link_to category_path(category) do %>
+      <%= category.name %>
+    <% end %>
+  <% end %>
+</div>

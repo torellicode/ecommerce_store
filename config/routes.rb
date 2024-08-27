@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+  get 'categories/index'
+  get 'categories/show'
+  get 'store/index'
   devise_for :users
 
   # Public routes
-   root "products#index"
+   root "store#index"
+   resources :categories, only: [:index, :show]
    resources :products, only: [:index, :show]
+   resources :store, only: [:index]
+
 
    # Users routes
   namespace :users do

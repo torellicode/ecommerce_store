@@ -1,0 +1,18 @@
+<h1><%= @category.name %></h1>
+
+<% @subcategories.each do |subcategory| %>
+  <p><%= subcategory.name %></p>
+<% end %>
+
+<% if @products.any? %>
+  <h2>Products</h2>
+  <ul>
+    <% @products.each do |product| %>
+      <li><%= link_to product.name, product_path(product) %> - <%= number_to_currency(product.price) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No products found in this category.</p>
+<% end %>
+
+<%= link_to 'Back to Store', root_path %>
