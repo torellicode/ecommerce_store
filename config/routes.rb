@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   # Public routes
-   root "temp#home"
+   root "products#index"
    resources :products, only: [:index, :show]
 
    # Users routes
@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   # Admin routes
   namespace :admin do
     get 'dashboard', to: 'dashboard#index'
+    resources :categories
   end
 
   get "up" => "rails/health#show", as: :rails_health_check

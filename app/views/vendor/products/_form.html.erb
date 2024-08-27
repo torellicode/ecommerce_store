@@ -31,6 +31,16 @@
   </div>
 
   <div class="field">
+    <%= form.label :category_id, "Parent Category" %>
+    <%= form.collection_select :category_id, Category.where(parent_id: nil), :id, :name, prompt: "Select Parent Category" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subcategory_id, "Subcategory" %>
+    <%= form.collection_select :subcategory_id, Category.where.not(parent_id: nil), :id, :name, prompt: "Select Subcategory" %>
+  </div>
+
+  <div class="field">
     <%= form.label :visible %>
     <%= form.check_box :visible %>
   </div>

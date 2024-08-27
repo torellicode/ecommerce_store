@@ -12,6 +12,8 @@ class Vendor::ProductsController < ApplicationController
 
   def new
     @product = current_user.products.build
+    @categories = Category.where(parent_id: nil)
+      @subcategories = Category.where.not(parent_id: nil)
   end
 
   def create
@@ -19,6 +21,8 @@ class Vendor::ProductsController < ApplicationController
     if @product.save
       redirect_to vendor_products_path, notice: 'Product was created successfully'
     else
+      @categories = Category.where(parent_id: nil)
+      @subcategories = Category.where.not(parent_id: nil)
       render :new, status: :unprocessable_entity
     end
   end
@@ -56,6 +60,6 @@ class Vendor::ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :inventory_count, :visible)
+    params.require(:product).permit(:name, :description, :price, :inventory_count, :visible, :category_id, :subcategory_id)
   end
 end
