@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.devise-form-input {
+  @apply block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6;
+}
+
+.devise-form-label {
+  @apply block text-sm font-medium leading-6 text-gray-900;
+}
+
+.devise-blue-text {
+  @apply font-semibold text-sky-700 hover:text-sky-600;
+}
+
+.devise-submit-button {
+  @apply flex w-full justify-center rounded-md bg-sky-700 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-800 cursor-pointer;
+}
+
+.devise-header {
+  @apply text-center text-2xl font-bold leading-9 tracking-tight text-gray-900;
+}
+
+.devise-text {
+  @apply text-sm text-gray-50;
+}

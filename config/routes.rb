@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  get 'categories/index'
-  get 'categories/show'
-  get 'store/index'
-  devise_for :users
+  devise_for :users, path: '', 
+    path_names: {
+      sign_in: 'login',
+      sign_out: 'logout',
+      sign_up: 'sign_up'
+    }
 
   # Public routes
    root "store#index"

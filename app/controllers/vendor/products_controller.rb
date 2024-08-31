@@ -4,7 +4,7 @@ class Vendor::ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy toggle_visibility]
 
   def index
-    @products = Product.all
+    @products = current_user.products.all
   end
 
   def show
