@@ -1,0 +1,35 @@
+<nav class="bg-sky-950 p-4 space-x-4 flex justify-between items-center max-h-20">
+    <!-- Company Name (hidden on mobile) -->
+    <div class="text-white text-lg font-bold block">
+      <%= link_to root_path do %>
+        <%= image_tag "logo.svg", class: "h-10" %>
+      <% end %>
+    </div>
+
+    <!-- Search Bar (expands on mobile to replace company name) -->
+    <div class="flex-1 max-w-96 mx-4">
+      <input type="text" placeholder="Search..." class="w-full py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-sky-600">
+    </div>
+
+    <!-- Dropdown Menu -->
+    <div class="flex items-center space-x-2">
+      <div>
+        <%= "cart" %>
+      </div>
+
+      <div>
+        <button class="text-gray-400 hover:text-white focus:text-white focus:outline-none" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 11.95l7.071-7.071a2 2 0 112.828 2.828l-7.071 7.071a2 2 0 11-2.828-2.828z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.121 11.95l7.071-7.071a2 2 0 112.828 2.828l-7.071 7.071a2 2 0 11-2.828-2.828z"></path>
+          </svg>
+        </button>
+        <!-- Dropdown Content -->
+        <div class="absolute right-0 top-[50px] w-48 bg-sky-950 rounded-b-md shadow-lg py-2 hidden" id="user-dropdown">
+          <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</a>
+          <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Settings</a>
+          <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>

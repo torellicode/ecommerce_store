@@ -1,0 +1,13 @@
+<% if current_user && user_signed_in? %>
+  <%= render 'layouts/shared/navigation' %>
+
+  <% if controller_path.start_with?('vendor') %>
+    <div class=" bg-sky-950 mx-auto pb-4 px-2">
+      <%= render 'layouts/shared/vendor_navigation' %>
+    </div>
+  <% elsif controller_path.start_with?('admin') %>
+    <div class=" bg-sky-950 mx-auto pb-4 px-2">
+      <%= render 'layouts/shared/admin_navigation' %>
+    </div>
+  <% end %>
+<% end %>
